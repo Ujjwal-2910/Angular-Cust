@@ -7,30 +7,27 @@ import { LoginModel } from './login.component';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [HttpClientModule,FormsModule],
+  imports: [HttpClientModule, FormsModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
 
-  constructor(private http:HttpClient,private router:Router)
-  {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
-  onViewProfile(){
-   
+  onViewProfile() {
     this.router.navigateByUrl('/view-profile')
   }
-  
-  isAuthenticated : boolean = false; 
-  tokenObject : LoginModel = <LoginModel>{};
-  returnUrl : string = "";
 
-  onSubmitSignOut()
-  {
+  isAuthenticated: boolean = false;
+  tokenObject: LoginModel = <LoginModel>{};
+  returnUrl: string = "";
+
+  onSubmitSignOut() {
     console.log("going here");
-    this.isAuthenticated=false; 
-    this.tokenObject=<LoginModel>{};
+    this.isAuthenticated = false;
+    this.tokenObject = <LoginModel>{};
     alert("You are signed out")
     this.router.navigateByUrl('/login')
   }
