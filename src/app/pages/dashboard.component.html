@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg bg-danger">
+    <div class="container-fluid bg-secondnary">
+      <!--<a class="navbar-brand" href="/">Hi {{window.sessionStorage.getItem("")}}</a>-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <form class="nav-item">
+            <button type="submit" class="btn btn-primary" (click)="onViewProfile()">Profile</button> 
+            <!--<a class="nav-link" href="/app-view-profile" >View Profile</a>-->
+          </form>&nbsp;&nbsp;&nbsp;&nbsp;
+          <form class="nav-item">
+            <button type="button" class="btn btn-primary">AddBeneficiaries</button>
+            <!--<a class="nav-link" href="/app-view-profile" >View Profile</a>-->
+          </form>&nbsp;&nbsp;&nbsp;&nbsp;
+          <form class="nav-item">
+            <button type="button" class="btn btn-primary">ViewAccounts</button>
+            <!--<a class="nav-link" href="/app-view-profile" >View Profile</a>-->
+          </form>&nbsp;&nbsp;&nbsp;&nbsp;
+          <!--<li class="nav-item">
+            <a class="nav-link btn btn-primary"  href="#">Add Beneficiries</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn btn-primary" href="#">View Accounts</a>
+          </li>-->
+          <div style="margin-left: 44em;">
+            <button class="btn btn-outline-success bg-warning" type="button" (click)="onSubmitSignOut()">LogOut</button>
+        </div>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+  <!--<router-outlet></router-outlet>-->
+  
