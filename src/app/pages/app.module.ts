@@ -35,7 +35,7 @@ import { EditProfileComponent } from './edit-profile.component';
     AppRoutingModule
   ],
   /* exports - lists all the app modules that will be made available to 
-  other external applications - optional */ 
+  other external applications - optional */
   /* providers - lists all the services and pipes defined within the application
    and these services listed here will be injected by Angular where ever required.
    */
