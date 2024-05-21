@@ -3,70 +3,58 @@
     <h3>Customer Details</h3>
   </div>
   <div class="card-body px-5">
-    <form #customerDetailsForm="ngForm">
-      <div class="row">
-        <div class="form-group col-md-3">
-          <label for="name">FirstName:</label>
-          <input type="text" [(ngModel)]="CustomerDetails.firstName" name="firstName" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="form-group col-md-3">
-          <label for="name">LastName:</label>
-          <input type="text" [(ngModel)]="CustomerDetails.lastName" name="lastName" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="firstName">First Name:</label>
+        <div class="form-control">{{ CustomerDetails.firstName }}</div>
       </div>
+      <div class="form-group col-md-3">
+        <label for="lastName">Last Name:</label>
+        <div class="form-control">{{ CustomerDetails.lastName }}</div>
+      </div>
+    </div>
 
-      <div class="row">
-        <div class="form-group col-md-3">
-          <label for="name">AddressLine1:</label>
-          <input type="text" [(ngModel)]="CustomerDetails.addressLine1" name="addressLine1" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="form-group col-md-3">
-          <label for="name">AddressLine2:</label>
-          <input type="text" [(ngModel)]="CustomerDetails.addressLine2" name="addressLine2" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="form-group col-md-3">
-          <label for="name">AddressLine3:</label>
-          <input type="text" [(ngModel)]="CustomerDetails.addressLine3" name="addressLine3" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="addressLine1">Address Line 1:</label>
+        <div class="form-control">{{ CustomerDetails.addressLine1 }}</div>
       </div>
-      <div class="row">
-        <div class="form-group col-md-3">
-          <label for="name">Pincode:</label>
-          <input type="text" [(ngModel)]="CustomerDetails.pincode" name="pincode" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="form-group col-md-3">
-          <label for="name">City:</label>
-          <input type="text" [(ngModel)]="CustomerDetails.city" name="city" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="form-group col-md-3">
-          <label for="name">Country:</label>
-          <input type="text" [(ngModel)]="CustomerDetails.country" name="country" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
+      <div class="form-group col-md-3">
+        <label for="addressLine2">Address Line 2:</label>
+        <div class="form-control">{{ CustomerDetails.addressLine2 }}</div>
       </div>
-      <div class="row">
-        <div class="form-group col-md-3">
-          <label for="phone">PhoneNumber:</label>
-          <input type="text" [(ngModel)]="CustomerDetails.phoneNumber" name="phoneNumber" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="form-group col-md-3">
-          <label for="email">EmailAddress:</label>
-          <input type="email" [(ngModel)]="CustomerDetails.emailAddress" name="emailAddress" class="form-control"
-            [ngModelOptions]="{standalone: true}">
-        </div>
+      <div class="form-group col-md-3">
+        <label for="addressLine3">Address Line 3:</label>
+        <div class="form-control">{{ CustomerDetails.addressLine3 }}</div>
       </div>
-
-      <div class="d-flex justify-content-center" style="margin-top: 1em;">
-        <button type="submit" class="btn btn-primary" (click)="onEdit()">EDIT</button>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="pincode">Pincode:</label>
+        <div class="form-control">{{ CustomerDetails.pincode }}</div>
       </div>
-    </form>
+      <div class="form-group col-md-3">
+        <label for="city">City:</label>
+        <div class="form-control">{{ CustomerDetails.city }}</div>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="country">Country:</label>
+        <div class="form-control">{{ CustomerDetails.country }}</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-3">
+        <label for="phoneNumber">Phone Number:</label>
+        <div class="form-control">{{ CustomerDetails.phoneNumber }}</div>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="emailAddress">Email Address:</label>
+        <div class="form-control">{{ CustomerDetails.emailAddress }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center" style="margin-top: 1em;">
+    <button type="button" class="btn btn-primary mx-2" (click)="goToEdit()">Go To Edit</button>
+    <button type="submit" class="btn btn-info" (click)="goBack()">Go Back</button>
   </div>
 </div>

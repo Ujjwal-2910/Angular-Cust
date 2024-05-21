@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -30,11 +30,16 @@ export class LoginComponent {
           if (res.token != null) {
             alert("login success")//api to front end =get;; //front ebd to database = post
             window.sessionStorage.setItem("token", res.token);
+            window.sessionStorage.setItem("userId", res.userId.toString());
             this.router.navigateByUrl('/dashboard')
           }
           else {
             alert("Login Unsuccessful, Please check and try again.")
           }
+        },
+        error => {
+          console.error('Login error:', error);
+          // Handle login error
         })
   }
 }

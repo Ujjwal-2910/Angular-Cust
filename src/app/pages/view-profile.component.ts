@@ -4,39 +4,50 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomersApiService } from './customer-api-service';
 
-
 @Component({
   selector: 'app-view-profile',
   standalone: true,
   imports: [FormsModule, HttpClientModule],
   templateUrl: './view-profile.component.html',
-  styleUrl: './view-profile.component.css'
+  styleUrls: ['./view-profile.component.css']
 })
 export class ViewProfileComponent {
   CustomerDetails: CustomerModel = <CustomerModel>{}
 
   constructor(private http: HttpClient, private router: Router, public apiService: CustomersApiService) {
-    debugger;
-
-    this.apiService.getDetails(3).subscribe(
-      (data) => this.CustomerDetails = data
-    )
-
-
+    const uid = this.getUserIdFromSession();
+    if(uid !== null) {
+      this.apiService.getDetails(uid).subscribe(
+        (data) => this.CustomerDetails = data
+      );
+    }
   }
 
+  ngOnInit(): void {
+    const userId = this.getUserIdFromSession();
+    if (userId !== null) {
+      this.apiService.getCustomerByUserId(userId.toString()).subscribe(
+        (data: CustomerModel) => {
+          this.CustomerDetails = data;
+        },
+        error => {
+          console.error('Error fetching customer data:', error);
+        }
+      );
+    }
+  }
 
-  onEdit() {
+  goToEdit(): void {
+    this.router.navigateByUrl('/edit-profile');
+  }
 
+  goBack(): void {
+    this.router.navigateByUrl('/dashboard');
+  }
 
-    this.apiService.update(this.CustomerDetails).subscribe(
-      data => {
-        alert("updated Successfully")
-      })
-    // this.apiService.update().subscribe(
-    //   (data)=>this.CustomerDetails= data
-    // )
-    // this.router.navigateByUrl('/edit-profile')
+  getUserIdFromSession(): number | null {
+    const userId = sessionStorage.getItem('userId');
+    return userId ? Number(userId) : null;
   }
 }
 
@@ -53,7 +64,7 @@ export class CustomerModel {
     public emailAddress: string,
     public dateOfBirth: Date,
     public city: string,
-    public country: string
-  ) { }
-
+    public country: string,
+    public userId: string
+  ) {}
 }

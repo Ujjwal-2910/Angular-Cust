@@ -15,18 +15,22 @@ export class CustomersApiService {
 
   ) { }
 
-  url = "http://localhost:5154";
+  url = "http://localhost:5029/api/Customer";
 
-  //   getProducts() : Observable<Product[]> { 
+  //   getProducts() : Observable<Product[]> {
   //     return this.http.get<Product[]>(this.url);
   //   }
 
   getDetails(id: number): Observable<CustomerModel> {
-
     const token = window.sessionStorage.getItem("token"); // Example: Retrieve access token from localStorage
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
     return this.http.get<CustomerModel>(`${this.url}/${id}`, { headers })
+  }
+  getCustomerByUserId(userId: string): Observable<CustomerModel> {
+    const id = parseInt(userId);
+    const url = `${this.url}/${id}`;
+    return this.http.get<CustomerModel>(url);
   }
 
   //   createNew(model: ) : Observable<Product> { 
@@ -47,7 +51,7 @@ export class CustomersApiService {
         "Content-Type": "application/json"
       }
     }
-    return this.http.post(`${this.url}`, JSON.stringify(model), options);
+    return this.http.put(`${this.url}`, JSON.stringify(model), options);
   }
 
   //   delete(id:number) { 
