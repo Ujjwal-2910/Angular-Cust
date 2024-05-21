@@ -24,7 +24,7 @@ export class LoginComponent {
       password: this.password
     };
 
-    this.http.post<LoginModel>('http://localhost:5029/api/Accounts', loginData)
+    this.http.post<LoginModel>('http://localhost:5029/api/User', loginData)
       .subscribe(
         res => {
           if (res.token != null) {
