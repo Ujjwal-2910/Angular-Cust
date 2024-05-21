@@ -5,6 +5,7 @@ import { DashboardComponent } from './pages/dashboard.component';
 import { ViewProfileComponent } from './pages/view-profile.component';
 import { NgModule } from '@angular/core';
 import { EditProfileComponent } from './pages/edit-profile.component';
+import { DownloadXLSXComponent } from './pages/download-xlsx.component';
 
 export const routes: Routes = [
     {
@@ -26,6 +27,10 @@ export const routes: Routes = [
         path: 'edit-profile',
         component: EditProfileComponent
     },
+    {
+        path: 'download-xlsx',
+        component: DownloadXLSXComponent
+    }
     // {//after login this is children component  and will be registered
     //   path:'',
     //     component:LayoutComponent,

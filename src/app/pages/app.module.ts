@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from '../app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from '../app.routes';
 import { LoginComponent } from './login.component';
 import { DashboardComponent } from './dashboard.component';
 import { ViewProfileComponent } from './view-profile.component';
-import { RouterModule } from '@angular/router';
-import { AppRoutingModule } from '../app.routes';
 import { EditProfileComponent } from './edit-profile.component';
+import { DownloadXLSXComponent } from './download-xlsx.component';
 
 
 
@@ -21,7 +22,8 @@ import { EditProfileComponent } from './edit-profile.component';
     LoginComponent,
     DashboardComponent,
     ViewProfileComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    DownloadXLSXComponent
   ],
   /*imports - lists all the external modules that are required in this module. */
   imports: [
